@@ -1,13 +1,19 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import {getHoge} from "@/src/app/get-hoge";
 
-export default function Home() {
+export default async function Home() {
+
+  const res = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+  const data = await res.json()
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
+          {JSON.stringify(data)}
           Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+          <code className={styles.code}>app/page.tsx</code>
         </p>
         <div>
           <a
